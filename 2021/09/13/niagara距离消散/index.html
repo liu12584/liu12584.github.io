@@ -8,19 +8,23 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>niagara距离消散 | Lopi</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="官方案例 项目设置 ；开启网格体距离场 niagara发射器添加：initialize Mesh Reroduction Sprite 初始化网格体粒子                   Update Mesh Reproduction Sprite更新网格体粒子更新内容">
+  <meta name="description" content="官方案例 项目设置 ；开启网格体距离场">
 <meta property="og:type" content="article">
 <meta property="og:title" content="niagara距离消散">
 <meta property="og:url" content="http://example.com/2021/09/13/niagara%E8%B7%9D%E7%A6%BB%E6%B6%88%E6%95%A3/index.html">
 <meta property="og:site_name" content="Lopi">
-<meta property="og:description" content="官方案例 项目设置 ；开启网格体距离场 niagara发射器添加：initialize Mesh Reroduction Sprite 初始化网格体粒子                   Update Mesh Reproduction Sprite更新网格体粒子更新内容">
+<meta property="og:description" content="官方案例 项目设置 ；开启网格体距离场">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/img/niagara%E8%B7%9D%E7%A6%BB%E6%B6%88%E6%95%A3/Update_Mesh_Reproduction_Sprite.PNG">
+<meta property="og:image" content="http://example.com/img/niagara%E8%B7%9D%E7%A6%BB%E6%B6%88%E6%95%A3/%E9%87%87%E9%9B%86uv.PNG">
+<meta property="og:image" content="http://example.com/img/niagara%E8%B7%9D%E7%A6%BB%E6%B6%88%E6%95%A3/sphere">
+<meta property="og:image" content="http://example.com/img/niagara%E8%B7%9D%E7%A6%BB%E6%B6%88%E6%95%A3/%E8%AE%A1%E7%AE%97%E8%B7%9D%E7%A6%BB%E5%9C%BA.PNG">
 <meta property="og:image" content="http://example.com/img/niagara%E8%B7%9D%E7%A6%BB%E6%B6%88%E6%95%A3/module_%E8%AE%A1%E7%AE%97%E7%B2%92%E5%AD%90%E8%B7%9D%E7%A6%BB%E5%9C%BA.PNG">
 <meta property="article:published_time" content="2021-09-13T12:38:49.000Z">
-<meta property="article:modified_time" content="2021-09-13T12:53:11.378Z">
+<meta property="article:modified_time" content="2021-09-13T13:37:29.502Z">
 <meta property="article:author" content="lopi">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/img/niagara%E8%B7%9D%E7%A6%BB%E6%B6%88%E6%95%A3/module_%E8%AE%A1%E7%AE%97%E7%B2%92%E5%AD%90%E8%B7%9D%E7%A6%BB%E5%9C%BA.PNG">
+<meta name="twitter:image" content="http://example.com/img/niagara%E8%B7%9D%E7%A6%BB%E6%B6%88%E6%95%A3/Update_Mesh_Reproduction_Sprite.PNG">
   
   
     <link rel="icon" href="/assets/110.png">
@@ -178,8 +182,27 @@
       
         <p>官方案例</p>
 <p>项目设置 ；开启网格体距离场</p>
-<p>niagara发射器添加：initialize Mesh Reroduction Sprite 初始化网格体粒子<br>                   Update Mesh Reproduction Sprite更新网格体粒子<br>更新内容</p>
+<span id="more"></span>
+
+<p>1.niagara发射器添加：initialize Mesh Reroduction Sprite 初始化网格体粒子 添加目标骨骼网格体<br>                   Update Mesh Reproduction Sprite更新网格体粒子 添加目标骨骼网格体<br>Update Mesh Reproduction Sprite更新内容</p>
+<img src="/img/niagara%E8%B7%9D%E7%A6%BB%E6%B6%88%E6%95%A3/Update_Mesh_Reproduction_Sprite.PNG" class="[class names]">
+
+<p>2.目标骨骼网格体添加Niagara组件，添加niagara资产</p>
+<p>3.Niagara粒子材质设置<br>添加Niagara_MeshReproductionSpriteUVs节点 采集uv和切线空间 生成网格代理用于Niagara采集 网格uv为正方形</p>
+<img src="/img/niagara%E8%B7%9D%E7%A6%BB%E6%B6%88%E6%95%A3/%E9%87%87%E9%9B%86uv.PNG" class="[class names]">
+<p>添加遮罩</p>
+<img src="/img/niagara%E8%B7%9D%E7%A6%BB%E6%B6%88%E6%95%A3/sphere" class="[class names]" title="mask.PNG">
+<p>设置Niagara粒子对齐方式为自定义</p>
+<p>4.设置模型随距离场变化</p>
+<img src="/img/niagara%E8%B7%9D%E7%A6%BB%E6%B6%88%E6%95%A3/%E8%AE%A1%E7%AE%97%E8%B7%9D%E7%A6%BB%E5%9C%BA.PNG" class="[class names]">
+<p>连接不透明度 在后面加saturate节点将数值钳制到0-1之间<br>可加DitherTemporalAA 提升粒子融合度</p>
+<p>5.添加Niagara module<br>获取网格体距离场信息，数值操作和上方“设置模型随距离场变化”一致</p>
 <img src="/img/niagara%E8%B7%9D%E7%A6%BB%E6%B6%88%E6%95%A3/module_%E8%AE%A1%E7%AE%97%E7%B2%92%E5%AD%90%E8%B7%9D%E7%A6%BB%E5%9C%BA.PNG" class="[class names]">
+<p>输出为浮点值<br>//（在末尾加“1-”节点方便）</p>
+<p>6.为niagara 粒子更新添加module设置 数值设置与4 一致</p>
+<p>7关闭solve forces anf velocity中 write to intrinsic properties 选项<br>因为其信息会被Update Mesh Reproduction Sprite  覆盖</p>
+<p>添加 lerp particle —-  lerp 粒子属性<br>alpha 为module输出的浮点值<br>lerp  位置 速度</p>
+
       
 	  <!-- 增加版权声明 -->
 
